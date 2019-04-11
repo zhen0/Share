@@ -22,7 +22,8 @@ const User = db.define("user", {
   },
   imageUrl: {
     type: Sequelize.STRING,
-    defaultValue: null
+    defaultValue:
+      "https://cdn.dribbble.com/users/5976/screenshots/2299828/open-uri20151019-3-1vpes4r"
   }
 });
 
