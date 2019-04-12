@@ -86,7 +86,6 @@ export const editUser = (edits, id) => {
 export const sendUser = newUser => {
   return async dispatch => {
     try {
-      console.log("sending");
       const { data } = await axios.post("/api/users/signup", newUser);
 
       dispatch(updateUserForm(data));
@@ -106,10 +105,20 @@ export const deleteUser = id => {
     }
   };
 };
+export const logout = () => {
+  return async dispatch => {
+    try {
+      await axios.post("/api/users/logout");
+      dispatch(addLookUser({}));
+    } catch (err) {
+      console.log("problem logging out in user reducer", err);
+    }
+  };
+};
 
 export const getMe = () => dispatch => {
   return axios
-    .get("/users/me")
+    .get("api/users/me")
     .then(res => res.data)
     .then(user => dispatch(addLookUser(user)))
     .catch(console.error.bind(console));

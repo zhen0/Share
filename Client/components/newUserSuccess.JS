@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { logout } from "../reducers/user";
 
 const OldFormSuccess = props => {
   if (!props.newUser.id) {
@@ -21,6 +22,7 @@ const OldFormSuccess = props => {
         <img src={props.newUser.imageUrl} />
         <p>name: {props.newUser.name}</p>
         <p>address: {props.newUser.address}</p>
+        <button onClick={props.handleClick}>Logout</button>
       </div>
     );
   }
@@ -30,7 +32,18 @@ const mapState = state => ({
   UserAdd: state.userReducer.UserAdd,
   newUser: state.userReducer.newUser
 });
-
-const FormSuccess = connect(mapState)(OldFormSuccess);
+const mapDispatch = (dispatch, ownProps) => {
+  return {
+    handleClick() {
+      dispatch(logout()).then(() => {
+        ownProps.history.push("/home");
+      });
+    }
+  };
+};
+const FormSuccess = connect(
+  mapState,
+  mapDispatch
+)(OldFormSuccess);
 
 export default FormSuccess;

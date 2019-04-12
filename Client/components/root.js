@@ -12,13 +12,13 @@ const Root = () => {
         <div>
           <ul id="navBar">
             <li>
-              <Link to="/userHome">Home</Link>
+              <Link to="/home">Home</Link>
             </li>
           </ul>
         </div>
 
         <Switch>
-          <Route exact path="/userHome" component={User} />
+          <Route exact path="/home" component={User} />
           <Route exact path="/sign-up" component={SignUp} />
           <Route exact path="/user" component={NewUserSuccess} />
           <Route exact path="/" component={User} />
