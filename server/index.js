@@ -3,9 +3,10 @@ const app = express();
 const morgan = require("morgan");
 const volleyball = require("volleyball");
 const path = require("path");
-const User = require("./db/models/user");
+const User = require("./db/");
 const passport = require("passport");
 const session = require("express-session");
+const Sequelize = require("sequelize");
 
 //session middleware
 app.use(
@@ -51,6 +52,10 @@ app.use(express.static(path.join(__dirname, "../public")));
 
 // api request routes
 app.use("/api", require("./api")); // include our routes!
+
+app.get("/favicon.ico", (req, res) => {
+  res.sendFile("./favicon.ico");
+});
 
 // Send index.html for any other requests
 app.get("*", (req, res) => {
