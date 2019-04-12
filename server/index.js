@@ -59,7 +59,7 @@ app.get("/favicon.ico", (req, res) => {
 
 // Send index.html for any other requests
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../client/index.html"));
+  res.sendFile(path.join(__dirname, "../Client/index.html"));
 });
 
 // error handling middleware
