@@ -10,6 +10,7 @@ const ERRR = "ERRR";
 const EDIT = "EDIT";
 
 //action creators
+
 const loadingPage = () => ({
   type: GETTING
 });
@@ -86,9 +87,8 @@ export const sendUser = newUser => {
   return async dispatch => {
     try {
       console.log("sending");
-      const { data } = await axios.post("/api/users", newUser);
+      const { data } = await axios.post("/api/users/signup", newUser);
 
-      dispatch(getAllUsers());
       dispatch(updateUserForm(data));
     } catch (err) {
       console.log("problem adding a new user at userReducer", err);
@@ -106,6 +106,15 @@ export const deleteUser = id => {
     }
   };
 };
+
+export const getMe = () => dispatch => {
+  return axios
+    .get("/users/me")
+    .then(res => res.data)
+    .then(user => dispatch(addLookUser(user)))
+    .catch(console.error.bind(console));
+};
+
 //state
 const initialState = {
   loading: false,

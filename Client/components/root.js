@@ -2,6 +2,7 @@ import React from "react";
 import User from "./userHome";
 import NotFound from "./notFound";
 import SignUp from "./signUp";
+import NewUserSuccess from "./newUserSuccess";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 
 const Root = () => {
@@ -19,6 +20,7 @@ const Root = () => {
         <Switch>
           <Route exact path="/userHome" component={User} />
           <Route exact path="/sign-up" component={SignUp} />
+          <Route exact path="/user" component={NewUserSuccess} />
           <Route exact path="/" component={User} />
           <Route component={NotFound} />
         </Switch>

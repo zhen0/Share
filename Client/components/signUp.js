@@ -1,7 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
 import { sendUser } from "../reducers/user";
-import NewUserSuccess from "./newUserSuccess";
 
 // import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 // import FormSuccess from "./FormSuccess";
@@ -11,7 +10,8 @@ class XSignUp extends React.Component {
     super();
     this.state = {
       name: "",
-      address: ""
+      address: "",
+      password: ""
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -19,9 +19,10 @@ class XSignUp extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     this.props.sendUser(this.state);
-
+    this.props.history.push("/user");
     this.setState({
-      username: "",
+      name: "",
+      address: "",
       password: ""
     });
   }
@@ -54,9 +55,16 @@ class XSignUp extends React.Component {
             value={this.state.address}
             onChange={this.handleChange}
           />
+          <label htmlFor="password">Password:</label>
+          <input
+            name="password"
+            type="password"
+            value={this.state.password}
+            onChange={this.handleChange}
+          />
+
           <button type="submit">Add Me!</button>
         </form>
-        <NewUserSuccess />
       </div>
     );
   }

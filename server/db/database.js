@@ -15,6 +15,7 @@ const db = new Sequelize(
   process.env.DATABASE_URL || `postgres://localhost:5432/share`,
   {
     logging: false
+
     // so we don't see all the SQL queries getting made
   }
 );

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Route } from "react-router-dom";
 import SignUp from "./signUp";
 
 const User = () => {
@@ -15,6 +15,7 @@ const User = () => {
         </p>
 
         <Link to="/sign-up">Sign Up! {"  "}</Link>
+        {/* <Route component={SignUp} /> */}
       </div>
 
       <div>

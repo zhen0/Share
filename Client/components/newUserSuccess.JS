@@ -2,7 +2,9 @@ import React from "react";
 import { connect } from "react-redux";
 
 const OldFormSuccess = props => {
-  if (props.newUser.errors) {
+  if (!props.newUser.id) {
+    return <p />;
+  } else if (props.newUser.errors) {
     return (
       <div>
         <p>
