@@ -101,6 +101,7 @@ router.post("/signup", async (req, res, next) => {
     if (err.name === "SequelizeUniqueConstraintError") {
       res.status(401).send("User already exists");
     } else {
+      console.log("Problem setting up user in signup in uer api", err);
       next(err);
     }
   }

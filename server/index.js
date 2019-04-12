@@ -3,7 +3,7 @@ const app = express();
 const morgan = require("morgan");
 const volleyball = require("volleyball");
 const path = require("path");
-const User = require("./db/");
+const User = require("./db/models/user");
 const passport = require("passport");
 const session = require("express-session");
 const Sequelize = require("sequelize");
@@ -31,7 +31,8 @@ passport.serializeUser((user, done) => {
 
 passport.deserializeUser(async (id, done) => {
   try {
-    let user = await User.findById(id);
+    console.log("User is", await User.findOne({ where: { id: id } }));
+    let user = await User.findByOne({ where: { id: id } });
     done(null, user);
   } catch (err) {
     console.log("error in deserialize user in server index.js", err);
