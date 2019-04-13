@@ -110,6 +110,7 @@ export const logout = () => {
     try {
       await axios.post("/api/users/logout");
       dispatch(addLookUser({}));
+      dispatch(updateUserForm({}));
     } catch (err) {
       console.log("problem logging out in user reducer", err);
     }

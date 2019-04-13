@@ -32,7 +32,7 @@ passport.serializeUser((user, done) => {
 passport.deserializeUser(async (id, done) => {
   try {
     console.log("User is", await User.findOne({ where: { id: id } }));
-    let user = await User.findByOne({ where: { id: id } });
+    let user = await User.findOne({ where: { id: id } });
     done(null, user);
   } catch (err) {
     console.log("error in deserialize user in server index.js", err);
