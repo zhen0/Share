@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { sendUser } from "../reducers/user";
 
+import AddKit from "./addKit";
 // import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 // import FormSuccess from "./FormSuccess";
 
@@ -19,7 +20,7 @@ class XSignUp extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     this.props.sendUser(this.state);
-    this.props.history.push("/user");
+    this.props.history.push("/addKit");
     this.setState({
       name: "",
       address: "",

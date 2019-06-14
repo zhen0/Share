@@ -12,7 +12,7 @@
     "seed": "node seed.js"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.19.0",
     "babel-polyfill": "^6.26.0",
     "babel-preset-react": "^6.24.1",
     "expo": "^32.0.0",

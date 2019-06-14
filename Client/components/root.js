@@ -3,6 +3,7 @@ import User from "./userHome";
 import NotFound from "./notFound";
 import SignUp from "./signUp";
 import NewUserSuccess from "./newUserSuccess";
+import AddKit from "./addKit";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 
 const Root = () => {
@@ -21,6 +22,7 @@ const Root = () => {
           <Route exact path="/home" component={User} />
           <Route exact path="/sign-up" component={SignUp} />
           <Route exact path="/user" component={NewUserSuccess} />
+          <Route exact path="/addKit" component={AddKit} />
           <Route exact path="/" component={User} />
           <Route component={NotFound} />
         </Switch>

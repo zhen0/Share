@@ -55,26 +55,20 @@ router.delete("/:id", async (req, res, next) => {
   }
 });
 
-// router.put("/:id", async (req, res, next) => {
-//   try {
-//     let [num, user] = await User.update(
-//       req.body,
-//       {
-//         where: { id: req.params.id },
-//         returning: true,
-//         plain: true
-//       }
-//       // {
-//       //   include: [{ model: Students }]
-//       // }
-//     );
+router.put("/:id", async (req, res, next) => {
+  try {
+    let [num, user] = await User.update(req.body, {
+      where: { id: req.params.id },
+      returning: true,
+      plain: true
+    });
 
-//     res.send(user);
-//   } catch (err) {
-//     console.log("Problem editing user in the API");
-//     res.send(err);
-//   }
-// });
+    res.send(user);
+  } catch (err) {
+    console.log("Problem editing user in the API");
+    res.send(err);
+  }
+});
 
 router.post("/login", async (req, res, next) => {
   try {
