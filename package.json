@@ -39,6 +39,7 @@
     "webpack-dev-server": "^3.3.1"
   },
   "devDependencies": {
+    "braces": ">=2.3.1",
     "@babel/core": "^7.4.3",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.5",
@@ -46,7 +47,8 @@
     "css-loader": "^2.1.1",
     "style-loader": "^0.23.1",
     "webpack": "^4.8.3",
-    "webpack-cli": "^3.3.0",  "js-yaml": ">=3.13.1"
+    "webpack-cli": "^3.3.0",
+    "js-yaml": ">=3.13.1"
   },
   "nodemonConfig": {
     "ignore": [
